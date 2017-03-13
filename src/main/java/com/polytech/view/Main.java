@@ -14,7 +14,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {            //psvm
-        System.out.println("Hello Polytech");
+        //System.out.println("Hello Polytech");
         PostRepository postrepesitory = new PostRepositoryImpl();
         PublicationService publicationservice  = new PublicationServiceImpl(postrepesitory);
 
