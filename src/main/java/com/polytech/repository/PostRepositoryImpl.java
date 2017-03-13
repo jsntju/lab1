@@ -1,4 +1,6 @@
-package com.polytech.business;
+package com.polytech.repository;
+
+import com.polytech.business.Post;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
 /**
  * Created by norabbit on 13/03/17.
  */
-public class PostRepository {
+public class PostRepositoryImpl implements PostRepository{
 
     private List<Post> db = new ArrayList<Post>();
 

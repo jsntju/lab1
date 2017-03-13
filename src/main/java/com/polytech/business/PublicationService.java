@@ -1,5 +1,8 @@
 package com.polytech.business;
 
+import com.polytech.repository.PostRepository;
+import com.polytech.repository.PostRepositoryImpl;
+
 import java.util.List;
 
 /**
