@@ -2,9 +2,9 @@ package com.polytech.view;
 
 import com.polytech.business.Post;
 import com.polytech.business.PublicationService;
-import com.polytech.business.PublicationServiceImpl;
-import com.polytech.repository.PostRepository;
-import com.polytech.repository.PostRepositoryImpl;
+import com.polytech.config.ApplicationConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
@@ -15,11 +15,15 @@ public class Main {
 
     public static void main(String[] args) {            //psvm
         //System.out.println("Hello Polytech");
-        PostRepository postrepesitory = new PostRepositoryImpl();
-        PublicationService publicationservice  = new PublicationServiceImpl(postrepesitory);
+       /* PostRepository postrepesitory = new PostRepositoryImpl();
+        PublicationService publicationservice  = new PublicationServiceImpl(postrepesitory);*/
 
-        Post post = new Post("Il fait chaud!! :) ");
-        Post post2 = new Post("Nouvelles infos:  ");
+       //Déclaration contexte:
+        ApplicationContext ApplicationContext = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);     //Recupere les bean
+        PublicationService publicationservice = ApplicationContext.getBean(PublicationService.class);       //Nom de la fontion du bean ou de la classe
+
+        Post post = new Post("Il fait chaud!! ");
+        Post post2 = new Post("Manger une glace ;) Cool  ");
         publicationservice.post(post);
         publicationservice.post(post2);
 

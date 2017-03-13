@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfiguration {
 
-    @Bean                               //Pour spring
+    @Bean                               //Pour spring => permet de gérer la f(x) ds un conteneur
     public PostRepository postRepository()
     {
         return new PostRepositoryImpl();
