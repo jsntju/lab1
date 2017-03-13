@@ -1,9 +1,10 @@
 package com.polytech.view;
 
 import com.polytech.business.Post;
+import com.polytech.business.PublicationService;
+import com.polytech.business.PublicationServiceImpl;
 import com.polytech.repository.PostRepository;
 import com.polytech.repository.PostRepositoryImpl;
-import com.polytech.business.PublicationService;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Main {
     public static void main(String[] args) {            //psvm
         //System.out.println("Hello Polytech");
         PostRepository postrepesitory = new PostRepositoryImpl();
-        PublicationService publicationservice  = new PublicationService(postrepesitory);
+        PublicationService publicationservice  = new PublicationServiceImpl(postrepesitory);
 
         Post post = new Post("Il fait chaud!! :) ");
         Post post2 = new Post("Nouvelles infos:  ");
