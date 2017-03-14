@@ -21,6 +21,7 @@ import javax.sql.DataSource;
 @Component
 @ComponentScan("com.polytech")                                           //passe par tout le package
 @PropertySource("classpath:/application.properties")                    //Fichier contenant infos de co
+@Import(WebConfig.class)
 public class ApplicationConfiguration {
 
 
