@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Created by norabbit on 14/03/17.
+ * Connexion  BDD 
  */
 public class JdbcPostRepository implements PostRepository{
 
