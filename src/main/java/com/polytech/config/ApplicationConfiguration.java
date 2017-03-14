@@ -8,7 +8,10 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 
@@ -20,15 +23,18 @@ import javax.sql.DataSource;
 @PropertySource("classpath:/application.properties")                    //Fichier contenant infos de co
 public class ApplicationConfiguration {
 
-    /*Connexion à la BDD => Ancienne version (local) */
-    /*@Bean
-    public DataSource dataSource()
+    /* -- Ancienne version commenté: Connexion à la BDD => Ancienne version (local)
+    * --Nouvelle Version: code laé pour le developpement
+     * Création de la structure de la bdd*/
+    @Bean
+    @Profile("DEV")
+    public DataSource DevDataSource()
     {
         //Créer BDD de type H2
         return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("create-schema.sql").build();
         //Pour se co, faut utiliser driver (cf fichier pom)
         //create-schema.sql => c'est le fichier sql de la BDD
-    }*/
+    }
 
 
     /*------ Pour fichier properties:*/
@@ -51,7 +57,8 @@ public class ApplicationConfiguration {
     /*Connexion à la BDD sur serveur*/
     //Datasource créer plein de co au début et après les récupère
     @Bean
-    public DataSource dataSource()
+    @Profile("PROD")
+    public DataSource ProdDataSource()
     {
         BasicDataSource dataSource = new BasicDataSource();
        /* dataSource.setUsername("root");                           //ancienne veriosn, en brut
