@@ -19,7 +19,7 @@ public class JdbcPostRepository implements PostRepository{
     }
 
 
-    /*Recupére infos dans la table*/
+    /*Recupére infos dans la table  */
     public List<Post> findAll()
     {
         List<Post> db = new ArrayList<Post>();
