@@ -16,6 +16,19 @@
             <artifactId>spring-context</artifactId>
             <version>4.3.5.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>                              <!-- Pour embeddedDatabaseBuilder -->
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.1.RELEASE</version>
+        </dependency>
+
+        <dependency>                                                            <!-- Pour driver (co BDD) -->
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.193</version>
+        </dependency>
+
     </dependencies>
 
 

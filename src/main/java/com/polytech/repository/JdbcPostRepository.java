@@ -15,6 +15,11 @@ public class JdbcPostRepository implements PostRepository{
 
     private DataSource dataSource;
 
+    public JdbcPostRepository(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+
     public List<Post> findAll() {
         return null;
     }
