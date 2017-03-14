@@ -45,7 +45,7 @@
             <version>6.0.5</version>
         </dependency>
 
-        <dependency>                                                            <!-- Pour spring MVC (web) -->
+        <dependency>                                                            <!-- Pour spring MVC (web) g-->
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>4.3.5.RELEASE</version>
