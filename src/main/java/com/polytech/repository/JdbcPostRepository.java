@@ -27,7 +27,7 @@ public class JdbcPostRepository implements PostRepository{
     public void save(Post post) {
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO POST VALUES(?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO POST (CONTENT) VALUES(?)");
             preparedStatement.setString(1,post.getContent());
             preparedStatement.execute();
 
