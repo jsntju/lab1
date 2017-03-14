@@ -1,8 +1,11 @@
 package com.polytech.repository;
 
 import com.polytech.business.Post;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+//import java.lang.annotation.Repeatable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,7 @@ import java.util.List;
  * Created by norabbit on 14/03/17.
  * Connexion  BDD 
  */
+@Repository //ou @component
 public class JdbcPostRepository implements PostRepository{
 
     private DataSource dataSource;

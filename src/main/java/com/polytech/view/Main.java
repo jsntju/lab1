@@ -14,11 +14,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {            //psvm
+
         //System.out.println("Hello Polytech");
-       /* PostRepository postrepesitory = new PostRepositoryImpl();
+        /*PostRepository postrepesitory = new PostRepositoryImpl();
         PublicationService publicationservice  = new PublicationServiceImpl(postrepesitory);*/
 
        //Déclaration contexte:
+        System.setProperty("spring.profiles.active","DEV");                 //active profile
         ApplicationContext ApplicationContext = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);     //Recupere les bean
         PublicationService publicationservice = ApplicationContext.getBean(PublicationService.class);       //Nom de la fontion du bean ou de la classe
 
