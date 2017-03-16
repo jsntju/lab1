@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by norabbit on 13/03/17.
  */
-@Service        //ou @component
+@Service       //ou @component
 public class PublicationServiceImpl implements PublicationService {
 
     //private List<Post> db = new ArrayList<Post>();

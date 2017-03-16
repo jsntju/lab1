@@ -17,6 +17,9 @@ public class Post {
     public Post(String content) {
         this.content = content;
     }
+    public Post() {
+        this.content ="Commentaire par default";
+    }
 
 
     public String getContent() {

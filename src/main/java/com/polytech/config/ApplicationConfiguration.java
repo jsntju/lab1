@@ -24,9 +24,6 @@ import javax.sql.DataSource;
 @Import(WebConfig.class)
 public class ApplicationConfiguration {
 
-
-
-
     /*------ Pour fichier properties:*/
     /*@Value("${datasource.driverName}")                      //recupere informations du fichier
     private String driverClassName;                            //Cherche dans le fichier
@@ -54,7 +51,7 @@ public class ApplicationConfiguration {
         dataSource.setPassword("root");
         dataSource.setUrl("jdbc:mysql://localhost:3306/BDDPolytech");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");*/
-        /*dataSource.setDriverClassName(driverClassName);             //Version connexion à chaque fois
+        /*dataSource.setDriverClassName(driverClassName);            //Version connexion à chaque fois
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         dataSource.setUrl(url);*/
@@ -63,7 +60,7 @@ public class ApplicationConfiguration {
         String url = environment.getProperty("datasource.url");
         String password = environment.getProperty("datasource.password");
         String username = environment.getProperty("datasource.username");
-        dataSource.setDriverClassName(driverClassName);             //Version connexion à chaque fois
+        dataSource.setDriverClassName(driverClassName);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         dataSource.setUrl(url);
