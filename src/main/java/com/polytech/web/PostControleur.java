@@ -43,7 +43,7 @@ public class PostControleur {
         return feedService.fetchFeed(id);
     }*/
 
-   //Récupére données par formulaire
+   //Récupére données par formulaires
    @RequestMapping(value ="/share", method = RequestMethod.POST)
     public String post(Post post)
     {
