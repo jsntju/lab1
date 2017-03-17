@@ -59,39 +59,25 @@
 
 <div class="container">
 
-
-
-
-
-
     <div class="starter-template">
-        <form th:action="@{logout}" method="POST">
-            <input type="submit" value ="Logout"/>
-        </form>
-
         <h1>Polytech Social Network</h1>
-        <p class="lead">Reseau social de Polytech <br/> Exercice</p>
-        <form class="form-style-4" action="/share" method="POST">
-            <label><!--for="content"-->
-                <span>What is in your mind?</span><textarea name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
-            </label>
-            <label>
-                <span>&nbsp;</span><input type="submit" value="Share" name="Share"/>
-            </label>
-        </form>
+        <p class="lead">Bonjour <br/></p>
 
-        <!-- Posts -->
-        <h3>Message poste</h3>
-        <div  class="row feed" th:each="posts:${posts}">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p th:text="${posts.getContent()}"></p>
-                    </div>
-                </div>
+        <form th:action="@{/login}" method="POST">      <!--avec @: recherche var login ds controller-->
+            <legend>Authentification:</legend>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Nom utilisateur" />
             </div>
-        </div>-
 
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" name="password" id="password" placeholder="Mot de passe" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 </div><!-- /.container -->
@@ -102,7 +88,6 @@
         h.style.height = "20px";
         h.style.height = (h.scrollHeight)+"px";
     }
-
 </script>
 
 <!-- Bootstrap core JavaScript
@@ -110,5 +95,6 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+
+    </body>
 </html>

@@ -75,7 +75,7 @@ public class ApplicationConfiguration {
     public DataSource DevDataSource()
     {
         //Créer BDD de type H2
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("create-schema.sql").build();
+        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("create-schema.sql").addScript("default_user.sql").build();
         //Pour se co, faut utiliser driver (cf fichier pom)
         //create-schema.sql => c'est le fichier sql de la BDD
     }
