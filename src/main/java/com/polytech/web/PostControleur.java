@@ -48,7 +48,7 @@ public class PostControleur {
    @RequestMapping(value ="/share", method = RequestMethod.POST)
     public String post(Post post, Principal principal)
     {
-        String username = principal.getName();
+        String username = principal.getName();              //Nom de la personne
         publicationService.post(post);
         return "redirect:/feed";
     }

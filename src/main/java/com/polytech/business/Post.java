@@ -25,8 +25,12 @@ public class Post {
     }
 
 
-    public Post(String content) {
+    private String username;
+
+
+    public Post(String content/*, String username*/) {
         this.content = content;
+        //this.username = username;
     }
     public Post() {
         this.content ="Commentaire par default";
