@@ -1,9 +1,5 @@
 package com.polytech.config;
 
-import com.polytech.business.PublicationService;
-import com.polytech.business.PublicationServiceImpl;
-import com.polytech.repository.JdbcPostRepository;
-import com.polytech.repository.PostRepository;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
