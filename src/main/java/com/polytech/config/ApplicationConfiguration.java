@@ -3,6 +3,7 @@ package com.polytech.config;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import javax.sql.DataSource;
 @ComponentScan("com.polytech")                                           //passe par tout le package
 @PropertySource("classpath:/application.properties")                    //Fichier contenant infos de co
 @Import(WebConfig.class)
+@EnableJpaRepositories("com.polytech.repository")
 public class ApplicationConfiguration {
 
     /*------ Pour fichier properties:*/

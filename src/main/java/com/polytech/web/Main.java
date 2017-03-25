@@ -24,8 +24,8 @@ public class Main {
         ApplicationContext ApplicationContext = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);     //Recupere les bean
         PublicationService publicationservice = ApplicationContext.getBean(PublicationService.class);       //Nom de la fontion du bean ou de la classe
 
-        Post post = new Post("Il fait chaud!! ");
-        Post post2 = new Post("Manger une glace ;) Cool  ");
+        Post post = new Post("Il fait chaud!! ","localhost");
+        Post post2 = new Post("Manger une glace ;) Cool  ","localhost");
         publicationservice.post(post);
         publicationservice.post(post2);
 

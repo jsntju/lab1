@@ -49,6 +49,7 @@ public class PostControleur {
     public String post(Post post, Principal principal)
     {
         String username = principal.getName();              //Nom de la personne
+        post.setAuthor(username);
         publicationService.post(post);
         return "redirect:/feed";
     }
