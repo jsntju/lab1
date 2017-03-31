@@ -71,3 +71,15 @@
 .form-style-4 input[type=button]:hover{
     background: #394D61;
 }
+
+.boutonLike {
+    border-radius: 12px 0 12px 0;
+    background: #478bf9;
+    border: 110px;
+    color: #070719;
+    font: bold 12px Verdana;
+    padding: 6px 0 6px 0;
+    width:110px;
+    cursor:pointer;
+    text-transform:capitalize;
+}

@@ -18,3 +18,16 @@ create table users(
       authority varchar_ignorecase(50) not null,
       constraint fk_authorities_users foreign key(username) references users(username));
       create unique index ix_auth_username on authorities (username,authority);
+
+-- Table des likes
+create table likeTable (
+  ID INT primary key AUTO_INCREMENT,
+  IDPost INT,
+  IDAuthor varchar(50),
+ CONSTRAINT fk_post          -- On donne un nom à notre clé
+   FOREIGN KEY (IDPost)             -- Colonne sur laquelle on crée la clé
+   REFERENCES POST(ID)  ,     -- Colonne de référence
+ CONSTRAINT fk_author          -- On donne un nom à notre clé
+   FOREIGN KEY (IDAuthor)             -- Colonne sur laquelle on crée la clé
+    REFERENCES users(username)        -- Colonne de référence
+);

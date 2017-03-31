@@ -1,5 +1,6 @@
 package com.polytech.business;
 
+import com.polytech.repository.LikeRepository;
 import com.polytech.repository.PostRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -20,13 +21,15 @@ public class PublicationServiceImpl implements PublicationService {
         this.postRepository = postRepository;
     }
 
+
+    /*---- Pour les Posts -----*/
     public void post(Post post) {
-        //db.add(post);
         postRepository.save(post);
     }
 
     public List<Post> fetchAll() {
-        //return db;
         return postRepository.findAll();
     }
+
+
 }

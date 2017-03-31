@@ -1,5 +1,6 @@
 package com.polytech.web;
 
+import com.polytech.business.Like;
 import com.polytech.business.Post;
 import com.polytech.business.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.security.Principal;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
  * Created by ju on 15/03/2017.
  */
 @Controller
+@SessionAttributes( value="posts", types={Post.class} )
 public class PostControleur {
 
     @Autowired
@@ -50,6 +53,7 @@ public class PostControleur {
     {
         String username = principal.getName();              //Nom de la personne
         post.setAuthor(username);
+       // post.setLikes(like);
         publicationService.post(post);
         return "redirect:/feed";
     }

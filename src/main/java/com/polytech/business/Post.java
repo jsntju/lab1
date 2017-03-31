@@ -2,6 +2,7 @@ package com.polytech.business;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by norabbit on 13/03/17.
@@ -20,6 +21,9 @@ public class Post {
 
     @Column(name ="AUTHOR")
     private String author;
+
+    @OneToMany(mappedBy = "idPost")
+    private List<Like> likes;
 
     @Override
     public String toString() {
@@ -53,5 +57,7 @@ public class Post {
         this.content = content;
     }
 
+    public void setLikes(Like like){this.likes.add(like);}
+    public List<Like> getLikes(){return (likes);}
 
 }

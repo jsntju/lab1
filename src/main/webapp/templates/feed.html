@@ -82,18 +82,28 @@
 
         <!-- Posts -->
         <h3>Message poste</h3>
-        <div  class="row feed" th:each="posts:${posts}">
+        <div class="row feed" th:each="posts:${posts}">
+            <p>Ya un msg ici!!!</p>
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <p th:text="${posts.getAuthor()}">
-                        </p>
+                        <h4 th:text="${posts.getAuthor()}"></h4>
                         <p th:text="${posts.getContent()}"></p>
+                        <p th:text="${posts.getLikes()}"></p>
                     </div>
+                    <!-- Like button-->
+                    <form class="boutonLike" action="/shareLike" method="POST">
+                        <label>
+                           <input type="submit" value="Like" name="likes"/>
+                        </label>
+                    </form>
                 </div>
             </div>
         </div>-
 
+    </div>
+    <div class="row feed" th:each="likes:${likes}">
+        <p th:text="${likes.getidAuthor()}"></p>
     </div>
 
 </div><!-- /.container -->
