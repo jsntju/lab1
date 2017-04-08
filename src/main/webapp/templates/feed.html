@@ -83,28 +83,47 @@
         <!-- Posts -->
         <h3>Message poste</h3>
         <div class="row feed" th:each="posts:${posts}">
-            <p>Ya un msg ici!!!</p>
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h4 th:text="${posts.getAuthor()}"></h4>
+                        <h4 class="bg-danger" th:text="${posts.getAuthor()}"></h4>
                         <p th:text="${posts.getContent()}"></p>
                         <p th:text="${posts.getLikes()}"></p>
+                        <div class="row feed" th:each="likes:${likes}">
+                           <!-- <p th:text="${posts.setLikes(likes)}"></p>-->
+                            <p>---LIKE---</p>
+                            <p th:text="${likes.getidAuthor()}"></p>
+                        </div>
                     </div>
-                    <!-- Like button-->
-                    <form class="boutonLike" action="/shareLike" method="POST">
+                   <!-- <div class="row feed" th:each="likes:${likes}">
+                        <p th:text="${likes.getidAuthor()}"></p>
+                    </div> -->
+                   <!-- Like button-->
+                   <form action="/shareLike" method="POST">
                         <label>
-                           <input type="submit" value="Like" name="likes"/>
+                           <input class="btn btn-primary" type="submit" value="Like" name="likes"/>
                         </label>
                     </form>
+                    <form class="form-style-9" action="/shareComment" method="POST">
+                        <label><!--for="content"-->
+                            <textarea  placeholder="Comments ? " name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
+                        </label>
+                        <label>
+                            <span>&nbsp;</span><input type="submit" value="Share" name="Share"/>
+                        </label>
+                    </form>
+                    <div class="bg-info" float="left" th:each="comments:${comments}">
+                        <!-- <p th:text="${posts.setLikes(likes)}"></p>-->
+                        <p th:text="${comments.getidAuthor()}"></p>
+                        <p th:text="${comments.getContent()}"></p>
+                    </div>
                 </div>
+
             </div>
         </div>-
 
     </div>
-    <div class="row feed" th:each="likes:${likes}">
-        <p th:text="${likes.getidAuthor()}"></p>
-    </div>
+
 
 </div><!-- /.container -->
 

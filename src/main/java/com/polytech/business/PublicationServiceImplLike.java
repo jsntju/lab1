@@ -26,4 +26,5 @@ public class PublicationServiceImplLike implements PublicationServiceLike{
     public List<Like> fetchAllLike() {
         return likeRepository.findAll();
     }
+
 }

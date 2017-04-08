@@ -24,6 +24,11 @@ public class Like {
     @Column(name ="IDAuthor")
     private String iDAuthor;
 
+    @Override
+    public String toString() {
+        return (iDAuthor+' '+idPost+' '+id);
+    }
+
 
     public void setidPost (Post idPost ) { this.idPost = idPost;}
     public Post getidPost () { return(idPost);}

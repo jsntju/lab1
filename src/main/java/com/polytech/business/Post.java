@@ -27,7 +27,7 @@ public class Post {
 
     @Override
     public String toString() {
-        return '{' + content +
+        return '{' + id +' '+content +
                 '}';
     }
 
@@ -57,7 +57,8 @@ public class Post {
         this.content = content;
     }
 
-    public void setLikes(Like like){this.likes.add(like);}
+   public void setLikes(Like like){this.likes.add(like);}
     public List<Like> getLikes(){return (likes);}
+
 
 }

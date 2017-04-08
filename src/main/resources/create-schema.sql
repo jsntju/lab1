@@ -31,3 +31,17 @@ create table likeTable (
    FOREIGN KEY (IDAuthor)             -- Colonne sur laquelle on crée la clé
     REFERENCES users(username)        -- Colonne de référence
 );
+
+-- Table des commentaires
+create table comments (
+  ID INT primary key AUTO_INCREMENT,
+  IDPost INT,
+  IDAuthor varchar(50),
+  CONTENT varchar(140),
+  CONSTRAINT fk_postComment          -- On donne un nom à notre clé
+  FOREIGN KEY (IDPost)             -- Colonne sur laquelle on crée la clé
+  REFERENCES POST(ID)  ,     -- Colonne de référence
+  CONSTRAINT fk_authorComment          -- On donne un nom à notre clé
+  FOREIGN KEY (IDAuthor)             -- Colonne sur laquelle on crée la clé
+  REFERENCES users(username)        -- Colonne de référence
+);

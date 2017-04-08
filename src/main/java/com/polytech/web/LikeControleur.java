@@ -17,19 +17,19 @@ import java.util.List;
 
 /**
  * Created by ju on 29/03/2017.
- */
+ *//*
 @Controller
-@SessionAttributes( value="likes", types={Like.class} )
+@SessionAttributes( value="likes", types={Like.class} )*/
 public class LikeControleur {
 
-    @Autowired
+    /*@Autowired
     private PublicationServiceLike publicationServiceLike;
     private PublicationService publicationService;
 
 
 
     /*Récupération données pour l'affichage*/
-    @RequestMapping(value= "/feedLike", method = RequestMethod.GET)
+    /*@RequestMapping(value= "/feedLike", method = RequestMethod.GET)
     public String getLike(Model model)             //Model = objet q'on remplie (conteneur)
     {
         List<Like> likes = publicationServiceLike.fetchAllLike();
@@ -46,5 +46,5 @@ public class LikeControleur {
         like.setidAuthor(username);
         publicationServiceLike.like(like);
         return "redirect:/feedLike";//"redirect:/feedLike";
-    }
+    }*/
 }

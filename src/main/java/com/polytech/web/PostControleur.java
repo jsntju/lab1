@@ -1,8 +1,6 @@
 package com.polytech.web;
 
-import com.polytech.business.Like;
-import com.polytech.business.Post;
-import com.polytech.business.PublicationService;
+import com.polytech.business.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,35 +15,31 @@ import java.util.List;
  * Created by ju on 15/03/2017.
  */
 @Controller
-@SessionAttributes( value="posts", types={Post.class} )
 public class PostControleur {
 
     @Autowired
     private PublicationService publicationService;
 
-    //Affichage juste hello => test
-   /*@RequestMapping(value= "/share", method = RequestMethod.POST)
-    public String home()
-    {
-        return "feed";
-    }*/
+    @Autowired
+    private PublicationServiceLike publicationServiceLike;
 
+    @Autowired
+    private PublicationServiceComment publicationServiceComment;
+
+    private Post postLocal;
+/*-------- Posts ------------------------------------*/
    /*Récupération données pour l'affichage*/
     @RequestMapping(value= "/feed", method = RequestMethod.GET)
     public String getPost(Model model)             //Model = objet q'on remplie (conteneur)
     {
+        List<Comment> comments = publicationServiceComment.fetchAll();
+        model.addAttribute("comments",comments);
+        List<Like> likes = publicationServiceLike.fetchAllLike();
         List<Post> posts = publicationService.fetchAll();
         model.addAttribute("posts",posts);
+        model.addAttribute("likes",likes);
         return "feed";
     }
-
-    //Difference path et param => meme chose mais ecriture deifférente
-    //Recupére élément par path ici (pas par param)
-   /*@RequestMapping(value= "/share/{id}", method = RequestMethod.GET)
-    public Post fetchPost(@PathVariable("id") Long id)
-    {
-        return feedService.fetchFeed(id);
-    }*/
 
    //Récupére données par formulaires
    @RequestMapping(value ="/share", method = RequestMethod.POST)
@@ -53,10 +47,62 @@ public class PostControleur {
     {
         String username = principal.getName();              //Nom de la personne
         post.setAuthor(username);
-       // post.setLikes(like);
         publicationService.post(post);
         return "redirect:/feed";
     }
+
+
+
+/*--------------- Likes -------------------------------------*/
+
+    /*Récupération données pour l'affichage*/
+    @RequestMapping(value= "/feedLike", method = RequestMethod.GET)
+    public String getLike(Model model)             //Model = objet q'on remplie (conteneur)
+    {
+        List<Like> likes = publicationServiceLike.fetchAllLike();
+        List<Post> posts = publicationService.fetchAll();
+        model.addAttribute("posts",posts);
+        model.addAttribute("likes",likes);
+        return "feed";
+    }
+
+
+    //Récupére données par formulaires
+    @RequestMapping(value ="/shareLike", method = RequestMethod.POST)
+    public String like(Like like, Principal principal)
+    {
+        String username = principal.getName();              //Nom de la personne
+        like.setidAuthor(username);
+
+        publicationServiceLike.like(like);
+        return "redirect:/feedLike";
+    }
+
+
+    /*----- Commentaires ----------------*/
+    /*Récupération données pour l'affichage*/
+    @RequestMapping(value= "/feedComment", method = RequestMethod.GET)
+    public String getComment(Model model)             //Model = objet q'on remplie (conteneur)
+    {
+        List<Comment> comments = publicationServiceComment.fetchAll();
+        model.addAttribute("comments",comments);
+        List<Like> likes = publicationServiceLike.fetchAllLike();
+        List<Post> posts = publicationService.fetchAll();
+        model.addAttribute("posts",posts);
+        model.addAttribute("likes",likes);
+        return "feed";
+    }
+
+    //Récupére données par formulaires
+    @RequestMapping(value ="/shareComment", method = RequestMethod.POST)
+    public String comment(Comment comment, Principal principal)
+    {
+        String username = principal.getName();              //Nom de la personne
+        comment.setidAuthor(username);
+        publicationServiceComment.comment(comment);
+        return "redirect:/feedComment";
+    }
+
 
 
 }

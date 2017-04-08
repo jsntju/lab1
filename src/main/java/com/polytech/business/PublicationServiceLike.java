@@ -9,4 +9,5 @@ public interface PublicationServiceLike {
     //Pour les likes
     void like(Like like);
     List<Like> fetchAllLike();
+
 }
