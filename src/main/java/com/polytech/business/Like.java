@@ -14,10 +14,10 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@Column(name ="IDPost")
-    @ManyToOne(targetEntity = Post.class)
-    @JoinColumn (name="IDPost")
-    private Post idPost;
+    @Column(name ="IDPost")
+    //@ManyToOne(targetEntity = Post.class)
+    //@JoinColumn (name="IDPost")
+    private Long idPost;
 
     //@ManyToOne
     //@JoinColumn (name="IDAuthor")
@@ -29,13 +29,27 @@ public class Like {
         return (iDAuthor+' '+idPost+' '+id);
     }
 
+    public Like()
+    {
+        this.iDAuthor = "null";
+    }
+    public Like(String iDAuthor, Long idPost)
+    {
+        this.iDAuthor = iDAuthor;
+        this.idPost = idPost;
+    }
 
-    public void setidPost (Post idPost ) { this.idPost = idPost;}
-    public Post getidPost () { return(idPost);}
+    public void setidPost (Long idPost ) { this.idPost = idPost;}
+    public Long getidPost () { return(idPost);}
 
     public void setidAuthor (String iDAuthor ) {
         this.iDAuthor = iDAuthor;
     }
     public String getidAuthor () { return(iDAuthor);}
+
+    public boolean equalsId(Long id)
+    {
+        return(this.id==id);
+    }
 
 }

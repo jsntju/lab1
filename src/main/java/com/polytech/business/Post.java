@@ -60,5 +60,8 @@ public class Post {
    public void setLikes(Like like){this.likes.add(like);}
     public List<Like> getLikes(){return (likes);}
 
+    public void setId(Long id){this.id = id;}
+    public Long getId(){return this.id;}
+
 
 }

@@ -66,7 +66,7 @@ public class ApplicationConfiguration {
     }
 
     /* -- Ancienne version commenté: Connexion à la BDD => Ancienne version (local)
-    * --Nouvelle Version: code laé pour le developpement
+    * --Nouvelle Version: code lié pour le developpement
      * Création de la structure de la bdd au niveau developpment (étape1)*/
     @Bean("dataSource")
     @Profile("DEV")
@@ -79,20 +79,6 @@ public class ApplicationConfiguration {
     }
 
 
-    //Fait par @component
-   /* @Bean                               //Pour spring => permet de gérer la f(x) ds un conteneur
-    public PostRepository postRepository(DataSource dataSource)
-    {
-        //return new PostRepositoryImpl();
-        return new JdbcPostRepository(dataSource);
-    }
 
-    //Fait par @component
-    @Bean
-    public PublicationService publicationService(PostRepository postRepository)
-    {
-        return new PublicationServiceImpl(postRepository);
-    }
-    */
 
 }

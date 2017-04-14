@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:xmls="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -88,34 +87,42 @@
                     <div class="panel-body">
                         <h4 class="bg-danger" th:text="${posts.getAuthor()}"></h4>
                         <p th:text="${posts.getContent()}"></p>
-                        <p th:text="${posts.getLikes()}"></p>
+
+                        <!-- Like button-->
+                        <form action="/shareLike" method="POST">
+                            <label>
+                                <input class="btn btn-primary" th:value="${posts.getId()}" type="submit" name="id"/>
+                            </label>
+                        </form>
+
+                        <!--Affichage like -->
+                        <p>---LIKE---</p>
                         <div class="row feed" th:each="likes:${likes}">
                            <!-- <p th:text="${posts.setLikes(likes)}"></p>-->
-                            <p>---LIKE---</p>
-                            <p th:text="${likes.getidAuthor()}"></p>
+                            <p th:if="${likes.getidPost()} == ${posts.getId()}" th:text="${likes.getidAuthor()}"></p>
                         </div>
                     </div>
-                   <!-- <div class="row feed" th:each="likes:${likes}">
-                        <p th:text="${likes.getidAuthor()}"></p>
-                    </div> -->
-                   <!-- Like button-->
-                   <form action="/shareLike" method="POST">
-                        <label>
-                           <input class="btn btn-primary" type="submit" value="Like" name="likes"/>
-                        </label>
-                    </form>
+
+
+                    <!-- Formulaire commentaire -->
                     <form class="form-style-9" action="/shareComment" method="POST">
                         <label><!--for="content"-->
                             <textarea  placeholder="Comments ? " name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
                         </label>
                         <label>
-                            <span>&nbsp;</span><input type="submit" value="Share" name="Share"/>
+                            <!--<span>&nbsp;</span><input type="submit" value="Share" name="Share"/> -->
+                            <!--"@{'newComment' + ${post.id}}" -->
+                            <span>&nbsp;</span><input type="submit" th:value="${posts.getId()}" name="id"/>
                         </label>
                     </form>
+
+                    <!-- Affichage commentaires -->
                     <div class="bg-info" float="left" th:each="comments:${comments}">
-                        <!-- <p th:text="${posts.setLikes(likes)}"></p>-->
+                        <!-- <p th:text="${posts.setLikes(likes)}"></p>
                         <p th:text="${comments.getidAuthor()}"></p>
-                        <p th:text="${comments.getContent()}"></p>
+                        <p th:text="${comments.getContent()}"></p>-->
+                        <p th:if="${comments.getidPost()} == ${posts.getId()}" th:text="${comments.getidAuthor()}"></p>
+                        <p th:if="${comments.getidPost()} == ${posts.getId()}"  th:text="${comments.getContent()}"></p>
                     </div>
                 </div>
 

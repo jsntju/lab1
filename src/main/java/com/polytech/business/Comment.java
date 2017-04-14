@@ -1,7 +1,6 @@
 package com.polytech.business;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by ju on 01/04/2017.
@@ -21,13 +20,20 @@ public class Comment {
     @Column(name ="IDAuthor")
     private String idAuthor;
 
-    @ManyToOne(targetEntity = Post.class)
-    @JoinColumn (name="IDPost")
-    private Post idPost;
+   // @ManyToOne(targetEntity = Post.class)
+    //@JoinColumn (name="IDPost")
+   @Column(name ="IDPost")
+    private Long idPost;
 
     public Comment() {
         this.content = "null";
         this.idAuthor = "null";
+    }
+
+    public Comment(String idAuthor, String content, Long idPost) {
+        this.content = content;
+        this.idAuthor = idAuthor;
+        this.idPost = idPost;
     }
 
     @Override
@@ -57,8 +63,8 @@ public class Comment {
         this.content = content;
     }
 
-    public void setidPost (Post idPost ) { this.idPost = idPost;}
-    public Post getidPost () { return(idPost);}
+    public void setidPost (Long idPost ) { this.idPost = idPost;}
+    public Long getidPost () { return(idPost);}
 }
 
 
