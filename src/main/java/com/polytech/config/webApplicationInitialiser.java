@@ -6,7 +6,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 /**
- * Created by ju on 14/03/2017.
+ * Created by justine Denis on 14/03/2017.
  */
 public class webApplicationInitialiser extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {

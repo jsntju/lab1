@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by ju on 16/03/2017.
+ * Created by justine Denis on 16/03/2017.
+ * Controlleur de la page Index (page d'ouverture du site)
  */
 @Controller
 public class HomeController { //home

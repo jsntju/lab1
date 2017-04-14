@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 
 /**
- * Created by norabbit on 13/03/17.
+ * Created by Justine Denis on 13/03/17.
  * Configuration de l'application
  */
 @Configuration

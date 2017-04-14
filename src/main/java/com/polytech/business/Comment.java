@@ -3,7 +3,8 @@ package com.polytech.business;
 import javax.persistence.*;
 
 /**
- * Created by ju on 01/04/2017.
+ * Created by Justine Denis on 01/04/2017.
+ * Classes des commentaires
  */
 @Entity
 @Table(name = "Comments")
@@ -14,17 +15,19 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Contenu du commentaire
     @Column(name ="CONTENT")
     private String content;
 
+    //Auteur du commentaire
     @Column(name ="IDAuthor")
     private String idAuthor;
 
-   // @ManyToOne(targetEntity = Post.class)
-    //@JoinColumn (name="IDPost")
+    //Numero de post liè au commentaire
    @Column(name ="IDPost")
     private Long idPost;
 
+   /*Constructeur par default*/
     public Comment() {
         this.content = "null";
         this.idAuthor = "null";
@@ -36,17 +39,20 @@ public class Comment {
         this.idPost = idPost;
     }
 
-    @Override
-    public String toString() {
-        return '{' +content +'}';
-    }
-
     public Comment(String content, String username) {
         this.content = content;
         this.idAuthor = username;
     }
 
+    @Override
+    public String toString() {
+        return '{' +content +'}';
+    }
 
+
+
+
+    /*Accesseurs */
     public String getContent() {
         return content;
     }

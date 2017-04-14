@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by ju on 08/04/2017.
+ * Created by justine Denis on 08/04/2017.
  */
 @Service
 public class PublicationServiceAuthoritiesImpl implements PublicationServiceAuthorities {

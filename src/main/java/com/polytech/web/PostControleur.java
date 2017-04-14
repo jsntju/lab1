@@ -12,7 +12,8 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * Created by ju on 15/03/2017.
+ * Created by justine Denis on 15/03/2017.
+ * Controleur des posts, likes, commentaires et inscription
  */
 @Controller
 public class PostControleur {
@@ -35,7 +36,8 @@ public class PostControleur {
     @Autowired
     private PublicationServiceAuthorities publicationServiceAuthorities;
 
-    private Post postLocal;
+
+
 /*-------- Posts ------------------------------------*/
    /*Récupération données pour l'affichage*/
     @RequestMapping(value= "/feed", method = RequestMethod.GET)
@@ -63,7 +65,6 @@ public class PostControleur {
 
 
 /*--------------- Likes -------------------------------------*/
-
     /*Récupération données pour l'affichage*/
     @RequestMapping(value= "/feedLike", method = RequestMethod.GET)
     public String getLike(Model model)             //Model = objet q'on remplie (conteneur)
@@ -77,17 +78,7 @@ public class PostControleur {
         return "feed";
     }
 
-    //Récupére données par formulaires
-    /*@RequestMapping(value ="/shareLike", method = RequestMethod.POST)
-    public String like(Like like, Principal principal)
-    {
-        String username = principal.getName();              //Nom de la personne
-        like.setidAuthor(username);
-
-        publicationServiceLike.like(like);
-        return "redirect:/feedLike";
-    }*/
-
+    /*Enregistrement des données*/
     @RequestMapping(value ="/shareLike", method = RequestMethod.POST)
     //PostMapping
     public String like(@RequestParam(value="id") Long idPost, Principal principal)
@@ -129,23 +120,12 @@ public class PostControleur {
     }
 
     //Récupére données par formulaires
-    /*@RequestMapping(value ="/shareComment", method = RequestMethod.POST)
-    public String comment(Comment comment, Principal principal)
-    {
-        String username = principal.getName();              //Nom de la personne
-        comment.setidAuthor(username);
-        publicationServiceComment.comment(comment);
-        return "redirect:/feedComment";
-    }*/
-
-
     @RequestMapping(value ="/shareComment", method = RequestMethod.POST)
     public String comment(@RequestParam(value="id") Long idPost, Comment comment, Principal principal)
     {
         String username = principal.getName();              //Nom de la personne
         comment.setidAuthor(username);
         comment.setidPost(idPost);
-        //Comment comment1 = new Comment(username, comment, idPost);
         publicationServiceComment.comment(comment);
         return "redirect:/feedComment";
     }

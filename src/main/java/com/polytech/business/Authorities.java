@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by ju on 08/04/2017.
+ * Created by Justine Denis on 08/04/2017.
+ * Objet indiquant le niveau de qualification de l'user pour acceder au site
  */
 @Entity
 @Table(name = "authorities")
@@ -17,8 +18,6 @@ public class Authorities {
     private long id;
 
    @Column(name ="username")
-   /*@OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "username")*/
     private String username;
 
     @Column(name ="authority")

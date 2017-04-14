@@ -1,11 +1,10 @@
 package com.polytech.business;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
- * Created by norabbit on 13/03/17.
+ * Created by Justine Denis on 13/03/17.
+ * Interface de service pour les postes
  */
 
 public interface PublicationService {

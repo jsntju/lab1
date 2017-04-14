@@ -9,7 +9,8 @@ import javax.persistence.Table;
 
 
 /**
- * Created by ju on 08/04/2017.
+ * Created by justine Denis on 08/04/2017.
+ * Classe des utilisateur du site (relié à la table USER)
  */
 @Entity
 @Table(name = "users")
@@ -67,9 +68,9 @@ public class User {
 
     public void setPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String dbpwd = passwordEncoder.encode(password);
-        while( !passwordEncoder.matches(password,dbpwd)) {
-            dbpwd = passwordEncoder.encode(password);
+        String dbpwd = passwordEncoder.encode(password);                        //Chiffre le password
+        while( !passwordEncoder.matches(password,dbpwd)) {                      //Tant que le chiffre ne correpond pas
+            dbpwd = passwordEncoder.encode(password);                           //... chiffre a nouveau
         }
         this.password = dbpwd;
     }

@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by ju on 14/04/2017.
+ * Created by Justine Denis on 14/04/2017.
+ * Controleur de la page d'inscription
  */
 @Controller
 public class SubscribeController {

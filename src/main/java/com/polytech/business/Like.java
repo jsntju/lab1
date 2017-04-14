@@ -3,7 +3,8 @@ package com.polytech.business;
 import javax.persistence.*;
 
 /**
- * Created by ju on 28/03/2017.
+ * Created by Justine Denis on 28/03/2017.
+ * Classes des likes des postes
  */
 @Entity
 @Table(name = "liketable")
@@ -14,13 +15,11 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Numéro de post liké
     @Column(name ="IDPost")
-    //@ManyToOne(targetEntity = Post.class)
-    //@JoinColumn (name="IDPost")
     private Long idPost;
 
-    //@ManyToOne
-    //@JoinColumn (name="IDAuthor")
+    //Autheur du like
     @Column(name ="IDAuthor")
     private String iDAuthor;
 
@@ -39,6 +38,7 @@ public class Like {
         this.idPost = idPost;
     }
 
+    /*Accesseurs*/
     public void setidPost (Long idPost ) { this.idPost = idPost;}
     public Long getidPost () { return(idPost);}
 

@@ -9,7 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 
 /**
- * Created by norabbit on 13/03/17.
+ * Created by justine Denis on 13/03/17.
+ * Obselette => ne marche plus avec le site
  */
 public class Main {
 

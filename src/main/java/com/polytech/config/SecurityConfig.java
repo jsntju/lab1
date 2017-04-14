@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 /**
- * Created by ju on 17/03/2017.
+ * Created by justine Denis on 17/03/2017.
  */
 @Configuration
 @EnableWebSecurity
@@ -47,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/**.css").permitAll()         //Pages accessible = lien publique
                 .antMatchers("/login").permitAll()
                 .antMatchers("/subscribe").permitAll()
-                .antMatchers("/feed").permitAll()
                 .anyRequest().authenticated()
                 .and()
                     .formLogin()

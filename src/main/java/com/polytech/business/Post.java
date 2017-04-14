@@ -2,10 +2,10 @@ package com.polytech.business;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
- * Created by norabbit on 13/03/17.
+ * Created by Justine Denis on 13/03/17.
+ * Classes des postes
  */
 @Entity
 @Table(name = "Post")
@@ -16,21 +16,20 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Contenu du post
     @Column(name ="CONTENT")
     private String content;
 
+    //Auteur du post
     @Column(name ="AUTHOR")
     private String author;
 
-    @OneToMany(mappedBy = "idPost")
-    private List<Like> likes;
 
     @Override
     public String toString() {
         return '{' + id +' '+content +
                 '}';
     }
-
 
     public Post(String content, String username) {
         this.content = content;
@@ -56,9 +55,6 @@ public class Post {
     public void setContent(String content) {
         this.content = content;
     }
-
-   public void setLikes(Like like){this.likes.add(like);}
-    public List<Like> getLikes(){return (likes);}
 
     public void setId(Long id){this.id = id;}
     public Long getId(){return this.id;}

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by ju on 01/04/2017.
+ * Created by justine Denis on 01/04/2017.
  */
 @Service
 public class PublicationServiceCommentImpl implements PublicationServiceComment{
