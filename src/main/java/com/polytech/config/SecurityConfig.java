@@ -47,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/**.css").permitAll()         //Pages accessible = lien publique
                 .antMatchers("/login").permitAll()
                 .antMatchers("/subscribe").permitAll()
+                .antMatchers("/feed").permitAll()
                 .anyRequest().authenticated()
                 .and()
                     .formLogin()

@@ -35,6 +35,7 @@
 
 <body>
 
+<!-- Menu -->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -51,25 +52,26 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+
             </ul>
+            <!-- Bouton deconnection -->
+            <div class="pull-right">
+                <form th:action="@{logout}"  method="POST">
+                    <input class="btn btn-link" type="submit" value ="Logout"/>
+                </form>
+            </div>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 
 <div class="container">
-
-
-
-
-
-
     <div class="starter-template">
-        <form th:action="@{logout}" method="POST">
-            <input type="submit" value ="Logout"/>
-        </form>
+
 
         <h1>Polytech Social Network</h1>
         <p class="lead">Reseau social de Polytech <br/> Exercice</p>
+
+        <!-- Poster les posts -->
         <form class="form-style-4" action="/share" method="POST">
             <label><!--for="content"-->
                 <span>What is in your mind?</span><textarea name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
@@ -79,19 +81,19 @@
             </label>
         </form>
 
-        <!-- Posts -->
-        <h3>Message poste</h3>
+        <br/><br/>
 
+        <!-- Posts -->
         <div class="row feed" th:each="posts:${posts}">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
 
-                        <h4 class="bg-danger" th:text="${posts.getAuthor()}"></h4>
-                        <p th:text="${posts.getContent()}"></p>
+                        <h3 class="bg-danger" th:text="${posts.getAuthor()}"></h3>
+                        <h3  th:text="${posts.getContent()}"></h3>
 
                         <!-- Like button-->
-                        <form action="/shareLike" method="POST">
+                        <form class="pull-right" action="/shareLike" method="POST">
                             <label>
                                 <input type="hidden" th:value="${posts.getId()}"  name="id"/>
                                 <input class="btn btn-primary" type="submit" value="Like"/>
@@ -99,34 +101,37 @@
                         </form>
 
                         <!--Affichage like -->
-                        <p>---LIKE---</p>
-                        <div class="row feed" th:each="likes:${likes}">
-                            <p th:if="${likes.getidPost()} == ${posts.getId()}" th:text="${likes.getidAuthor()}"></p>
-                        </div>
+                        <strong class="pull-left">Ils aiment: &nbsp; </strong>
+                        <span class="pull-left" th:each="likes:${likes}">
+                            <strong th:if="${likes.getidPost()} == ${posts.getId()}" th:text="${likes.getidAuthor()}+'&nbsp;'"></strong>
+                        </span>
                     </div>
 
+                    <div class="panel-body">
+                        <!-- Formulaire commentaire -->
+                        <form class="form-style-9 pull-right" action="/shareComment" method="POST">
+                            <label><!--for="content"-->
+                                <textarea  placeholder="Comments ? " name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
+                            </label>
+                            <label>
+                                <span>&nbsp;</span>
+                                <input type="hidden" th:value="${posts.getId()}" name="id"/>
+                                <input type="submit" value="Comment"/>
+                            </label>
+                        </form>
 
-                    <!-- Formulaire commentaire -->
-                    <form class="form-style-9" action="/shareComment" method="POST">
-                        <label><!--for="content"-->
-                            <textarea  placeholder="Comments ? " name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
-                        </label>
-                        <label>
-                            <span>&nbsp;</span>
-                            <input type="hidden" th:value="${posts.getId()}" name="id"/>
-                            <input type="submit" value="Comment"/>
-                        </label>
-                    </form>
-
-                    <!-- Affichage commentaires -->
-                    <div class="bg-info" float="left" th:each="comments:${comments}">
-                        <p th:if="${comments.getidPost()} == ${posts.getId()}" th:text="${comments.getidAuthor()}"></p>
-                        <p th:if="${comments.getidPost()} == ${posts.getId()}"  th:text="${comments.getContent()}"></p>
+                        <!-- Affichage commentaires -->
+                        <div class="pull-left">
+                        <dl class="dl-horizontal bg-info"   th:each="comments:${comments}">
+                            <dt th:if="${comments.getidPost()} == ${posts.getId()}" th:text="${comments.getidAuthor()}"></dt>
+                            <dd th:if="${comments.getidPost()} == ${posts.getId()}"  th:text="${comments.getContent()}"></dd>
+                        </dl>
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>-
+        </div>
 
     </div>
 
