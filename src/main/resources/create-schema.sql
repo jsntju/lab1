@@ -1,6 +1,5 @@
 
 -- Creation de la table post
---IF NOT EXISTS POST
  CREATE TABLE POST (
   ID INT primary key AUTO_INCREMENT,
   CONTENT varchar(140),
@@ -19,24 +18,16 @@ create table users(
       mail varchar_ignorecase(250) NOT NULL,
       enabled boolean not null);
 
--- create table infoUser (
---  ID INT primary key AUTO_INCREMENT,
--- username varchar_ignorecase(50) not null,
--- name varchar_ignorecase(50) NOT NULL,
--- lastname varchar_ignorecase(50) NOT NULL,
--- adress varchar_ignorecase(50) NOT NULL,
--- city varchar_ignorecase(50) NOT NULL,
--- mail varchar_ignorecase(250) NOT NULL,
--- constraint fk_authorities_users2 foreign key(username) references users(username)
--- );--
+
+
 
   create table authorities (
       username varchar_ignorecase(50) not null,
-      authority varchar_ignorecase(50) not null,
-      constraint fk_authorities_users foreign key(username) references users(username));
+      authority varchar_ignorecase(50) not null);
       create unique index ix_auth_username on authorities (username,authority);
 ALTER TABLE authorities
 ADD id INT;
+
 
 -- Table des likes
 create table likeTable (

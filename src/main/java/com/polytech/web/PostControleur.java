@@ -93,8 +93,22 @@ public class PostControleur {
     public String like(@RequestParam(value="id") Long idPost, Principal principal)
     {
         String username = principal.getName();              //Nom de la personne
-        Like like = new Like(username,idPost);
-        publicationServiceLike.like(like);                  //ajoute Like au model
+        List<Like> likes = publicationServiceLike.fetchAllLike();
+       boolean uniq = true;
+        for(int i=0; i<likes.size(); i++)                       //Verif unicite du like
+        {
+            if((likes.get(i).getidAuthor().equals(username))
+                && (likes.get(i).getidPost().equals(idPost)))
+            {
+                uniq = false;                                  //Like existe deja sur le poste
+            }
+        }
+
+        if(uniq)                                            //Si premier like
+        {
+            Like like = new Like(username,idPost);
+            publicationServiceLike.like(like);                  //ajoute Like au model
+        }
         return "redirect:/feedLike";
     }
 

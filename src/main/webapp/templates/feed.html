@@ -81,24 +81,26 @@
 
         <!-- Posts -->
         <h3>Message poste</h3>
+
         <div class="row feed" th:each="posts:${posts}">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
+
                         <h4 class="bg-danger" th:text="${posts.getAuthor()}"></h4>
                         <p th:text="${posts.getContent()}"></p>
 
                         <!-- Like button-->
                         <form action="/shareLike" method="POST">
                             <label>
-                                <input class="btn btn-primary" th:value="${posts.getId()}" type="submit" name="id"/>
+                                <input type="hidden" th:value="${posts.getId()}"  name="id"/>
+                                <input class="btn btn-primary" type="submit" value="Like"/>
                             </label>
                         </form>
 
                         <!--Affichage like -->
                         <p>---LIKE---</p>
                         <div class="row feed" th:each="likes:${likes}">
-                           <!-- <p th:text="${posts.setLikes(likes)}"></p>-->
                             <p th:if="${likes.getidPost()} == ${posts.getId()}" th:text="${likes.getidAuthor()}"></p>
                         </div>
                     </div>
@@ -110,17 +112,14 @@
                             <textarea  placeholder="Comments ? " name="content" onkeyup="adjust_textarea(this)" required="true"></textarea>
                         </label>
                         <label>
-                            <!--<span>&nbsp;</span><input type="submit" value="Share" name="Share"/> -->
-                            <!--"@{'newComment' + ${post.id}}" -->
-                            <span>&nbsp;</span><input type="submit" th:value="${posts.getId()}" name="id"/>
+                            <span>&nbsp;</span>
+                            <input type="hidden" th:value="${posts.getId()}" name="id"/>
+                            <input type="submit" value="Comment"/>
                         </label>
                     </form>
 
                     <!-- Affichage commentaires -->
                     <div class="bg-info" float="left" th:each="comments:${comments}">
-                        <!-- <p th:text="${posts.setLikes(likes)}"></p>
-                        <p th:text="${comments.getidAuthor()}"></p>
-                        <p th:text="${comments.getContent()}"></p>-->
                         <p th:if="${comments.getidPost()} == ${posts.getId()}" th:text="${comments.getidAuthor()}"></p>
                         <p th:if="${comments.getidPost()} == ${posts.getId()}"  th:text="${comments.getContent()}"></p>
                     </div>

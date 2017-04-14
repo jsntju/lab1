@@ -2,18 +2,17 @@
 <html lang="en"
 >
 
-
 <head>
-    <link rel="stylesheet" type="text/css" href="fileCSS.css">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="fileCSS.css"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
     <style>
@@ -60,9 +59,9 @@
 <div class="container">
 
     <div class="starter-template">
-
         <h1>Polytech Social Network</h1>
-        <p class="lead">Reseau social de Polytech </br> Exercice</p>
+        <p class="lead">Bonjour <br/></p>
+
 
 
         <br/>
@@ -70,9 +69,8 @@
 
 
         <!-- Inscription-->
-        <!--
         <form action="/subscribe" method="POST">      <!--avec @: recherche var login ds controller-->
-         <!--   <legend>Inscrivez vous</legend>
+            <legend>Inscrivez vous</legend>
 
             <div class="form-group">
                 <label for="username">username</label>
@@ -105,29 +103,28 @@
 
             <button type="submit" class="btn btn-primary">inscription</button>
         </form>
-        <p>Inscriptioon FINI</p>
-         <div class="row feed" th:each="users:${users}">
-             <p>Resultat</p>
-             <div class="col-md-12">
-                 <p th:text="${users.getUsername()}"></p>
-                 <p th:text="${users.getPassword()}"></p>
-                 <p th:text="${users.getName()}"></p>
-                 <p th:text="${users.getLastname()}"></p>
-                 <p th:text="${users.getAdress()}"></p>
-                 <p th:text="${users.getCity()}"></p>
-                 <p th:text="${users.getMail()}"></p>
-             </div>
-         </div>
--->
 
 
-    </div><!-- /.container -->
+
+    </div>
+
+</div><!-- /.container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    //auto expand textarea
+    function adjust_textarea(h) {
+        h.style.height = "20px";
+        h.style.height = (h.scrollHeight)+"px";
+    }
+</script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
